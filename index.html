@@ -29,7 +29,7 @@
 
             <div class="customColor">
                 <p class="customText">Page color</p>
-                <input class="colorChanger" id="palette" type="color">
+                <input class="colorChanger" id="palette" type="color" value="#A8A8A8">
             </div>
         </div>
 
@@ -41,6 +41,46 @@
             <a href=""> <img src="" alt="netu"></a>
         </footer>
 
+        <div class="boxMenu" id="boxMenu">
+
+            <div class="boxMenuContent">
+                <p class="customText">Parameters</p>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>Width</h3>
+                        <input type="text" class="input" id="boxWidth" value="20">
+                    </div>
+                    <input type="range" id="boxWidthRange" min="0" max="40" value="20">
+                </div>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>Height</h3>
+                        <input type="text" class="input" id="boxHeight" value="20">
+                    </div>
+                    <input type="range" id="boxHeightRange" min="0" max="40" value="20">
+                </div>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>Border radius</h3>
+                        <input type="text" class="input" id="borderRadius" value="2">
+                    </div>
+                    <input type="range" id="borderRadiusRange" min="0" max="10" value="2">
+                </div>
+
+                <div class="inputChangerLine">
+                    <h3>Border color</h3>
+                    <input class="colorChanger" id="borderPallete" type="color" value="#ffffff">
+                </div>
+
+                <div class="inputChangerLine">
+                    <h3>Box color</h3>
+                    <input class="colorChanger" id="boxPallete" type="color" value="#ffffff">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
