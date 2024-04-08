@@ -1,6 +1,7 @@
 const root = document.getElementById("root");
-const showCodeBtn = document.getElementById("showCodeBtn");
+const sidebar = document.getElementById("sidebar");
 
+const showCodeBtn = document.getElementById("showCodeBtn");
 const arrow = document.getElementById("arrow");
 const addShadowBtn = document.getElementById("addShadowBtn");
 const palette = document.getElementById("palette");
@@ -226,3 +227,65 @@ const boxColor = document.getElementById("boxPallete");
     // Box parameters end
 // Box custom end
 
+// Shadow custom 
+        // Create custom block
+            const createShadowCustomBlock = (num) =>
+            {
+                const customBlock = document.createElement("div");
+                
+                customBlock.innerHTML = 
+                `<div class = "customContainer">
+                    <p class="customText">Shadow ${num}</p>
+                    <img class="shadowArrow" src="./img/Arrow.svg" alt="netu">
+                </div>`;
+
+                if (num === 2)
+                {
+                    sidebar.style.overflowY = "scroll";
+                }
+
+                sidebar.appendChild(customBlock);
+            }
+
+            const shadowMenu = document.createElement("div");
+            const createShadowMenu = (e) =>
+            {
+                shadowMenu.classList.add("boxMenu");
+                shadowMenu.innerHTML = 
+                `
+                <p class="customText">Parameters</p>
+                `;
+
+                root.appendChild(shadowMenu);
+
+                x = e.clientX + 35;
+                y = e.clientY - 28;
+                shadowMenu.style.left = `${x}px`;
+                shadowMenu.style.top = y + "px"; 
+            }
+
+            let clicks = 0;
+            addShadowBtn.addEventListener("click", (ev) => 
+            {
+                clicks++;
+                createShadowCustomBlock(clicks);
+                let arrows = document.getElementsByClassName("shadowArrow");
+
+                // Shadow custom
+                    Array.from(arrows).map((ar) =>
+                    {
+                        ev.stopPropagation();
+                        ar.addEventListener("click",(ev) =>
+                        {
+                            ar.classList.toggle("arrowAnimate");
+                            shadowMenu.classList.toggle("active");
+                            createShadowMenu(ev);
+                        })
+                    });
+                // Shadow custom end
+
+            });
+
+        // Create custom block end
+            
+// Shadow custom end
