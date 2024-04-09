@@ -13,6 +13,7 @@
     --clr3: white;
     --clr4: #DDDEE0;
     --clr5: #0084ff;
+    --clr6: rgba(0, 0, 0, 0.1);
 }
 
 body
@@ -112,7 +113,7 @@ body
     cursor: pointer;
 }
 
-.shadowArrow
+#shadowArrow
 {
     transition: 0.7s;
     cursor: pointer;
@@ -198,6 +199,8 @@ body
 
     border: 1px solid var(--clr3);
     border-radius: 2rem;
+
+    box-shadow: 0px 10px 15px 0px var(--clr6);
 }
 
 .footer

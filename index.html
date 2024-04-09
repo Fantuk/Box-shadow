@@ -22,8 +22,9 @@
                     <img id="arrow" src="./img/Arrow.svg" alt="netu">
                 </div>
     
-                <div class="buttonContainer">
-                    <button class="addShadow" id="addShadowBtn"><h1>Add Shadow</h1></button>
+                <div class="customContainer">
+                    <p class="customText">Shadow</p>
+                    <img id="shadowArrow" src="./img/Arrow.svg" alt="netu">
                 </div>
             </div>
 
@@ -78,6 +79,50 @@
                 <div class="inputChangerLine">
                     <h3>Box color</h3>
                     <input class="colorChanger" id="boxPallete" type="color" value="#ffffff">
+                </div>
+            </div>
+        </div>
+
+        <div class="boxMenu" id="shadowMenu">
+
+            <div class="boxMenuContent">
+                <p class="customText">Parameters</p>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>X</h3>
+                        <input type="text" class="input" id="shadowX" value="0">
+                    </div>
+                    <input type="range" id="shadowXrange" min="-100" max="100" value="0">
+                </div>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>Y</h3>
+                        <input type="text" class="input" id="shadowY" value="10">
+                    </div>
+                    <input type="range" id="shadowYrange" min="-100" max="100" value="10">
+                </div>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>Blur</h3>
+                        <input type="text" class="input" id="shadowBlur" value="15">
+                    </div>
+                    <input type="range" id="shadowBlurRange" min="0" max="100" value="15"> 
+                </div>
+
+                <div class="inputChanger">
+                    <div class="inputChangerLine">
+                        <h3>Spread</h3>
+                        <input type="text" class="input" id="shadowSpread" value="0">
+                    </div>
+                    <input type="range" id="shadowSpreadRange" min="-100" max="100" value="0"> 
+                </div>
+
+                <div class="inputChangerLine">
+                    <h3>Shadow color</h3>
+                    <input class="colorChanger" id="shadowPallete" type="color" value="#575656">
                 </div>
             </div>
         </div>
