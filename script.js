@@ -33,6 +33,9 @@ const shadowYrange = document.getElementById("shadowYrange");
 const shadowBlurRange = document.getElementById("shadowBlurRange");
 const shadowSpreadRange = document.getElementById("shadowSpreadRange");
 
+const activeInput = document.getElementById("activeInput");
+const insetInput = document.getElementById("insetInput");
+
 // Color change
 
     // BG color
@@ -95,7 +98,7 @@ const shadowSpreadRange = document.getElementById("shadowSpreadRange");
         });
     // Box BG end
 
-    // Box BG
+    // Shadow color
         shadowColor.addEventListener("input", (event) => 
         {
             block.style.boxShadow = `${shadowX.value || shadowXrange.value}px
@@ -117,7 +120,7 @@ const shadowSpreadRange = document.getElementById("shadowSpreadRange");
             shadowColor.style.transition = "0.5s";
             shadowColor.style.transform = "scale(1, 1)";
         });
-    // Box BG end
+    // Shadow color end
 // End color change
 
 
@@ -167,8 +170,17 @@ const shadowSpreadRange = document.getElementById("shadowSpreadRange");
     // Arrow animate
         arrow.addEventListener("click", (ev) => 
         {
-            arrow.classList.toggle("arrowAnimate");
-            boxMenu.classList.toggle("active");
+            if (boxMenu.classList.contains('active')) {
+                boxMenu.classList.remove('active');
+                arrow.classList.remove("arrowAnimate");
+              } else {
+                boxMenu.classList.add('active');
+                arrow.classList.add("arrowAnimate");
+                if (shadowMenu.classList.contains('active')) {
+                  shadowMenu.classList.remove('active');
+                  shadowArrow.classList.remove("arrowAnimate");
+                }
+              }
             createBoxMenu(ev);
         });
     // Arrow animate
@@ -242,13 +254,22 @@ const shadowSpreadRange = document.getElementById("shadowSpreadRange");
             x = e.clientX + 35;
             y = e.clientY;
             shadowMenu.style.left = x + "px";
-            shadowMenu.style.top = "187px";
+            shadowMenu.style.top = "115px";
         }
 
         shadowArrow.addEventListener("click", (ev) =>
         {
-            shadowArrow.classList.toggle("arrowAnimate");
-            shadowMenu.classList.toggle("active");
+            if (shadowMenu.classList.contains('active')) {
+                shadowMenu.classList.remove('active');
+                shadowArrow.classList.remove("arrowAnimate");
+              } else {
+                shadowMenu.classList.add('active');
+                shadowArrow.classList.add("arrowAnimate");
+                if (boxMenu.classList.contains('active')) {
+                  boxMenu.classList.remove('active');
+                  arrow.classList.remove("arrowAnimate");
+                }
+              }
             createShadowMenu(ev);
         });   
     // Shadow custom menu end
@@ -337,7 +358,54 @@ const shadowSpreadRange = document.getElementById("shadowSpreadRange");
             shadowSpread.addEventListener("input", updateSpread);
             shadowSpreadRange.addEventListener("input", updateSpreadRange);
         // Shadow Blur end
+        
+        // Shadow active and inset
+            let isShadowEnabled = true;
+            let isInset = false;
 
+            // Функция для обновления тени
+            function updateShadow() {
+                if (isShadowEnabled) {
+                    const inset = isInset ? 'inset ' : '';
+                    block.style.boxShadow = `${inset}${shadowX.value || shadowXrange.value}px 
+                    ${shadowY.value || shadowYrange.value}px 
+                    ${shadowBlur.value || shadowBlurRange.value}px 
+                    ${shadowSpread.value || shadowSpreadRange.value}px ${shadowColor.value}`;
+                } else {
+                    block.style.boxShadow = 'none';
+                }
+            }
 
+            // Функция для обработки нажатия на кнопку "active"
+            function toggleShadow() {
+                isShadowEnabled = !isShadowEnabled;
+                updateShadow();
+            }
+
+            // Функция для обработки нажатия на кнопку "inset"
+            function toggleInset() {
+                isInset = !isInset;
+                updateShadow();
+            }
+
+            // Привязываем обновление тени к изменению параметров тени
+            shadowX.addEventListener("input", updateShadow);
+            shadowY.addEventListener("input", updateShadow);
+            shadowBlur.addEventListener("input", updateShadow);
+            shadowSpread.addEventListener("input", updateShadow);
+            shadowXrange.addEventListener("input", updateShadow);
+            shadowYrange.addEventListener("input", updateShadow);
+            shadowBlurRange.addEventListener("input", updateShadow);
+            shadowSpreadRange.addEventListener("input", updateShadow);
+            shadowColor.addEventListener("input", updateShadow);
+
+            // Привязываем функции к кнопкам "active" и "inset"
+            activeInput.addEventListener("change", toggleShadow);
+            insetInput.addEventListener("change", toggleInset);
+        // Shadow active and inset
     // Shadow parameters end
 // Shadow custom end
+
+// Opening menu
+
+// Opening menu end

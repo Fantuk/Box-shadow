@@ -13,7 +13,7 @@
     --clr3: white;
     --clr4: #DDDEE0;
     --clr5: #0084ff;
-    --clr6: rgba(0, 0, 0, 0.1);
+    --clr6: rgb(139, 133, 133);
 }
 
 body
@@ -260,6 +260,12 @@ body
     justify-content: space-between;
     align-items: center;
     width:  100%;
+}
+
+.inputCheckbox
+{
+    display: flex;
+    gap: 5px;
 }
 
 .input
