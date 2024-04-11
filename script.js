@@ -1,7 +1,7 @@
 const root = document.getElementById("root");
 const sidebar = document.getElementById("sidebar");
 
-const showCodeBtn = document.getElementById("showCodeBtn");
+const gitImg = document.getElementById("gitImg");
 const arrow = document.getElementById("arrow");
 const shadowArrow = document.getElementById("shadowArrow");
 const palette = document.getElementById("palette");
@@ -123,47 +123,27 @@ const insetInput = document.getElementById("insetInput");
     // Shadow color end
 // End color change
 
+// Img animation
+    gitImg.addEventListener("mouseenter", () => 
+    {
+        gitImg.style.transition = "0.5s";
+        gitImg.style.transform = "scale(1.2, 1.2)"
+    });
 
-// Buttons animation
-
-    // Show code button
-        showCodeBtn.addEventListener("mouseenter", () =>
-        {
-            showCodeBtn.style.transition = "0.5s";
-            showCodeBtn.style.transform = "scale(1.2, 1.2)"
-            showCodeBtn.style.opacity = "0.95";
-        });
-
-        showCodeBtn.addEventListener("mouseleave", () =>
-        {
-            showCodeBtn.style.transition = "0.5s";
-            showCodeBtn.style.transform = "scale(1, 1)";
-            showCodeBtn.style.opacity = "1";
-        });
-
-        showCodeBtn.addEventListener("mousedown", () => 
-        {
-            showCodeBtn.style.transition = "0.1s";
-            showCodeBtn.style.backgroundColor = "var(--clr5)";
-        });
-
-        showCodeBtn.addEventListener("mouseup", () => 
-        {
-            showCodeBtn.style.backgroundColor = "var(--clr2)";
-        });
-    // Show code button end
-// Buttons animation end
-
+    gitImg.addEventListener("mouseleave", () => 
+    {
+        gitImg.style.transition = "0.5s";
+        gitImg.style.transform = "scale(1, 1)"
+    });
+// Img animation end
 
 // Box custom
 
     // Box custom menu
         const createBoxMenu = (e) => 
         {
-            x = e.clientX + 35;
-            y = e.clientY;
-            boxMenu.style.left = `${x}px`;
-            boxMenu.style.top = "91px";
+            boxMenu.style.left = `248px`;
+            boxMenu.style.top = "68px";
         }
     // Box custom menu end
 
@@ -193,6 +173,7 @@ const insetInput = document.getElementById("insetInput");
                 rangeWidth.value = inputWidth.value;
                 const widthVal = inputWidth.value || rangeWidth.value;
                 block.style.width = widthVal + 'rem';
+                updateCSSCode();
             }
 
             function updateWidthRange()
@@ -200,6 +181,7 @@ const insetInput = document.getElementById("insetInput");
                 inputWidth.value = rangeWidth.value;
                 const widthVal = inputWidth.value || rangeWidth.value;
                 block.style.width = widthVal + 'rem';
+                updateCSSCode();
             }
 
             inputWidth.addEventListener("input", updateWidthInput);
@@ -212,6 +194,7 @@ const insetInput = document.getElementById("insetInput");
                 rangeHeight.value = inputHeight.value
                 const heightVal = inputHeight.value || rangeHeight.value;
                 block.style.height = heightVal + 'rem';
+                updateCSSCode();
             }
 
             function updateHeightRange()
@@ -219,6 +202,7 @@ const insetInput = document.getElementById("insetInput");
                 inputHeight.value = rangeHeight.value
                 const heightVal = inputHeight.value || rangeHeight.value;
                 block.style.height = heightVal + 'rem';
+                updateCSSCode();
             }
 
             inputHeight.addEventListener("input", updateHeightInput);
@@ -231,6 +215,7 @@ const insetInput = document.getElementById("insetInput");
             rangeRadius.value = inputRadius.value;
             const radiusVal = inputRadius.value || rangeRadius.value;
             block.style.borderRadius = radiusVal + 'rem';
+            updateCSSCode();
         }
 
         function updateRadiusRange()
@@ -238,6 +223,7 @@ const insetInput = document.getElementById("insetInput");
             inputRadius.value = rangeRadius.value;
             const radiusVal = inputRadius.value || rangeRadius.value;
             block.style.borderRadius = radiusVal + 'rem';
+            updateCSSCode();
         }
 
         inputRadius.addEventListener("input", updateRadiusInput);
@@ -251,9 +237,7 @@ const insetInput = document.getElementById("insetInput");
     // Shadow custom menu
         const createShadowMenu = (e) => 
         {
-            x = e.clientX + 35;
-            y = e.clientY;
-            shadowMenu.style.left = x + "px";
+            shadowMenu.style.left = "248px";
             shadowMenu.style.top = "115px";
         }
 
@@ -282,6 +266,7 @@ const insetInput = document.getElementById("insetInput");
                 const xVal = shadowX.value || shadowXrange.value;
                 block.style.boxShadow = `${xVal}px ${shadowY.value}px ${shadowBlur.value}px ${shadowSpread.value}px 
                 ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             function updateXrange()
@@ -290,6 +275,7 @@ const insetInput = document.getElementById("insetInput");
                 const xVal = shadowX.value || shadowXrange.value;
                 block.style.boxShadow = `${xVal}px ${shadowYrange.value}px ${shadowBlurRange.value}px 
                 ${shadowSpreadRange.value}px ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             shadowX.addEventListener("input", updateX);
@@ -303,6 +289,7 @@ const insetInput = document.getElementById("insetInput");
                 const yVal = shadowY.value || shadowYrange.value;
                 block.style.boxShadow = `${shadowX.value}px ${yVal}px ${shadowBlur.value}px ${shadowSpread.value}px 
                 ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             function updateYrange()
@@ -311,6 +298,7 @@ const insetInput = document.getElementById("insetInput");
                 const yVal = shadowY.value || shadowYrange.value;
                 block.style.boxShadow = `${shadowX.value}px ${yVal}px ${shadowBlurRange.value}px 
                 ${shadowSpreadRange.value}px ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             shadowY.addEventListener("input", updateY);
@@ -324,6 +312,7 @@ const insetInput = document.getElementById("insetInput");
                 const blurVal = shadowBlur.value || shadowBlurRange.value;
                 block.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${blurVal}px ${shadowSpread.value}px 
                 ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             function updateBlurRange()
@@ -332,6 +321,7 @@ const insetInput = document.getElementById("insetInput");
                 const blurVal = shadowBlur.value || shadowBlurRange.value;
                 block.style.boxShadow = `${shadowX.value}px ${shadowYrange.value}px ${blurVal}px 
                 ${shadowSpreadRange.value}px ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             shadowBlur.addEventListener("input", updateBlur);
@@ -345,6 +335,7 @@ const insetInput = document.getElementById("insetInput");
                 const spreadVal = shadowSpread.value || shadowSpreadRange.value;
                 block.style.boxShadow = `${shadowX.value}px ${shadowY.value}px ${shadowBlur.value}px ${spreadVal}px 
                 ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             function updateSpreadRange()
@@ -353,6 +344,7 @@ const insetInput = document.getElementById("insetInput");
                 const spreadVal = shadowSpread.value || shadowSpreadrange.value;
                 block.style.boxShadow = `${shadowX.value}px ${shadowYrange.value}px ${shadowBlurRange.value}px 
                 ${spreadVal}px ${shadowColor.value}`;
+                updateCSSCode();
             }
 
             shadowSpread.addEventListener("input", updateSpread);
@@ -374,18 +366,21 @@ const insetInput = document.getElementById("insetInput");
                 } else {
                     block.style.boxShadow = 'none';
                 }
+                updateCSSCode();
             }
 
             // Функция для обработки нажатия на кнопку "active"
             function toggleShadow() {
                 isShadowEnabled = !isShadowEnabled;
                 updateShadow();
+                updateCSSCode();
             }
 
             // Функция для обработки нажатия на кнопку "inset"
             function toggleInset() {
                 isInset = !isInset;
                 updateShadow();
+                updateCSSCode();
             }
 
             // Привязываем обновление тени к изменению параметров тени
@@ -406,6 +401,22 @@ const insetInput = document.getElementById("insetInput");
     // Shadow parameters end
 // Shadow custom end
 
-// Opening menu
+// CSS code
 
-// Opening menu end
+function updateCSSCode() {
+    const cssCode = 
+    `
+    #block {
+        width: ${block.style.width};
+        height: ${block.style.height};
+        border-radius: ${block.style.borderRadius};
+        background-color: ${block.style.backgroundColor};
+        border-color: ${block.style.borderColor};
+        box-shadow: ${block.style.boxShadow};
+    }
+    `;
+    document.getElementById("cssCode").textContent = cssCode;
+}
+
+updateCSSCode();
+// CSS code end

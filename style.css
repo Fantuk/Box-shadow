@@ -28,7 +28,7 @@ body
     display: flex;
     position: fixed;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     height: 70px;
     width: 100%;
@@ -63,7 +63,6 @@ body
     position: fixed;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
 
     top: 70px;
@@ -100,6 +99,12 @@ body
     padding-inline: 15px;
 
     border-bottom: 2px solid var(--clr1);
+}
+
+#cssCode
+{
+    overflow: auto;
+    height: 100%;
 }
 
 .customText
@@ -217,6 +222,12 @@ body
 
     background-color: var(--clr3);
     border-top: 2px solid var(--clr1);
+}
+
+#gitImg
+{
+    width: 30px;
+    height: 30px;
 }
 
 .boxMenu
